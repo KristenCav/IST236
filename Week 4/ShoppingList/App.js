@@ -5,14 +5,12 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  Modal,
-  TextInput,
-  Image,
   Pressable,
   FlatList,
+  Alert,
 } from "react-native";
 import Item from "./components/Item";
+import ItemInputModal from "./modals/ItemInputModal";
 
 export default function App() {
   // Create State Management Variables
@@ -29,16 +27,39 @@ export default function App() {
     setModalIsVisible(false);
   }
 
+  //Get entered item text and append to list
   function addItemHandler(enteredItemText) {
+    //Current shopping items are sent to
     setShoppingItems((currentShoppingItems) => {
       return [
-        //... flattens the list so that you can pull just one items value from  the list
+        //... flattens list and gives back just the items
         ...currentShoppingItems,
         { text: enteredItemText, id: currentID },
       ];
     });
+    //Adds one to whatever the currentID is - this is to prevent redundant IDs
     setCurrentID(currentID + 1);
     endAddItemHandler();
+  }
+
+  function deleteItemHandler(id) {
+    Alert.alert("Delete Item", "Are you sure you want to delete?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Confirm",
+        style: "default",
+        onPress: () => {
+          setShoppingItems((currentShoppingItems) => {
+            //Filter is looking for a true/false for each item in the list
+            //If item.id is not equal to id, we keep it. If it is, we skip it
+            return currentShoppingItems.filter((item) => item.id !== id);
+          });
+        },
+      },
+    ]);
   }
 
   return (
@@ -77,20 +98,26 @@ export default function App() {
         {/* Set List of Items Container */}
         <View style={styles.listContainer}>
           <FlatList
-            //This is the data we want to go over
             data={shoppingItems}
-            //This is how I get the unique identifier to tell one item from another
             keyExtractor={(item, index) => {
               return item.id;
             }}
-            //Pass in itemData
             renderItem={(itemData) => {
-              return <Item text={itemData.item.text} id={itemData.item.id} />; //TODO Add onDeleteItem prop
+              return (
+                <Item
+                  text={itemData.item.text}
+                  id={itemData.item.id}
+                  onDeleteItem={deleteItemHandler}
+                />
+              );
             }}
           />
         </View>
-
-        <ItemInputModal onAddItem={addItemHandler} onCancel={endAddItemHandler} visible={modalIsVisible} />
+        <ItemInputModal
+          onAddItem={addItemHandler}
+          onCancel={endAddItemHandler}
+          visible={modalIsVisible}
+        />
       </SafeAreaView>
     </>
   );
@@ -157,35 +184,5 @@ const styles = StyleSheet.create({
   listText: {
     fontSize: 20,
     color: "black",
-  },
-  inputContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-    backgroundColor: "#311b6b",
-    width: "90%",
-  },
-  image: {
-    width: 100,
-    height: 100,
-    margin: 20,
-  },
-  textInput: {
-    borderWidth: 1,
-    borderColor: "#efd0ff",
-    backgroundColor: "#efd0ff",
-    color: "#120438",
-    borderRadius: 6,
-    width: "100%",
-    padding: 12,
-  },
-  modalButtonContainer: {
-    flexDirection: "row",
-    marginTop: 15,
-  },
-  modalButton: {
-    width: "30%",
-    marginHorizontal: 8,
   },
 });

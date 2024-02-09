@@ -1,25 +1,12 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Modal,
-  TextInput,
-  Image,
-  Pressable,
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 
 function Item(props) {
   return (
     <View style={styles.item}>
       <Pressable
-        //Add the android ripple
-        android_ripple={{ color: "#b180f0" }}
-        //Style the button when pressed
-        style={({ pressed }) => pressed && styles.pressedButton}
-        //TODO Add onPress
+        android_ripple={{ color: "#210644" }}
+        style={({ pressed }) => pressed && StyleSheet.pressedItem}
+        onPress={props.onDeleteItem.bind(this, props.id)}
       >
         <Text style={styles.itemText}>{props.text}</Text>
       </Pressable>
@@ -30,16 +17,17 @@ function Item(props) {
 export default Item;
 
 const styles = StyleSheet.create({
-    item: {
-        margin: 8,
-        borderRadius: 6,
-        backgroundColor: "#5e08cc",
-    },
-    pressedItem: {
-        opacity: 0.5
-    },
-    itemText: {
-        color: "#ffffff",
-        padding: 8
-    },
+  item: {
+    margin: 8,
+    borderRadius: 6,
+    backgroundColor: "#5e08cc",
+    width: 300,
+  },
+  pressedItem: {
+    opacity: 0.5,
+  },
+  itemText: {
+    color: "#ffffff",
+    padding: 8,
+  },
 });
