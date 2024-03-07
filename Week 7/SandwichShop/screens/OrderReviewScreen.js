@@ -22,8 +22,8 @@ function OrderReviewScreen(props) {
       <View>
         <Title>Order Summary</Title>
       </View>
-      <View>
-        <Text>Your order has been placed with your order details below</Text>
+      <View style={styles.subTitleContainer}>
+        <Text style={styles.subTitle}>Your order has been placed with your order details below</Text>
       </View>
 
       <View style={styles.ingredientsContainer}>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   subTitle: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
     color: Colors.primary500,
