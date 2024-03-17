@@ -1,0 +1,198 @@
+import State from "../models/states";
+import Campground from "../models/campgrounds";
+
+export const STATES = [
+  new State("s1", "USA", "#f44336"), // Red
+  new State("s2", "United Arab Emirates", "#2196f3"), // Blue
+  new State("s3", "Italy", "#4caf50"), // Green
+  new State("s4", "Greece", "#ff9800"), // Orange
+  new State("s5", "France", "#9c27b0"), // Purple
+  new State("s6", "Scotland", "#ffeb3b"), // Yellow
+  new State("s7", "Maldives", "#03a9f4"), // Light Blue
+  new State("s8", "Sweden", "#8bc34a"), // Light Green
+  new State("s9", "Ireland", "#ff5722"), // Deep Orange
+  new State("s10", "Norway", "#673ab7"), // Deep Purple
+];
+
+export const DESTINATIONS = [
+  new Destination(
+    "c1",
+    "s1",
+    "Yellowstone National Park",
+    35,
+    1872,
+    5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/84/92/2f/yellowstone-national.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c2",
+    "s2",
+    "Aura Skypool",
+    55,
+    2021,
+    5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/e3/6a/e4/aura-skypool-ain-marina.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c3",
+    "s3",
+    "Gladiator's Gate Colosseum Tour",
+    70,
+    70 AD,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/e5/3d/e5/tour.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c4",
+    "s4",
+    "Acropolis",
+    15,
+    5 BC,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/91/62/30/caption.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c5",
+    "s5",
+    "Sainte-Chapelle",
+    22,
+    1246,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/8e/f9/54/caption.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c6",
+    "s6",
+    "Edinburgh Castle: Walking Tour",
+    44,
+    1200,
+    5,
+    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/78/f0/9a.jpg"
+  ),
+  new Destination(
+    "c7",
+    "s7",
+    "5.8 Undersea Restaurant",
+    80,
+    2016,
+    5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/90/29/bc/interior-of-58-undersea.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c8",
+    "s8",
+    "Vasa Museum",
+    100,
+    1990,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/2e/17/99/smtm.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c9",
+    "s9",
+    "The Causeway Safari",
+    125,
+    Unknown,
+    5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/a7/51/82/caption.jpg?w=1100&h=-1&s=1"
+  ),
+  new Destination(
+    "c10",
+    "s10",
+    "Fram Museum",
+    14,
+    1796,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/f9/cc/a8/enjoy-a-cinematic-show.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c11",
+    "s1",
+    "Hell's Revenge 4x4 Off-Roading Tour",
+    162,
+    Unknown,
+    5,
+    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/36/34/01.jpg https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/36/34/01.jpg"
+  ),
+  new Destination(
+    "c12",
+    "s2",
+    "LEGOLAND Dubai",
+    85,
+    2016,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ad/1f/60/caption.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c13",
+    "s3",
+    "Valle dei Templi",
+    20,
+    600 BC,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/93/ec/b5/la-vallee-des-temples.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c14",
+    "s4",
+    "Meteora Sunset Tour",
+    48,
+    1340,
+    5,
+    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/f9/ee/84.jpg"
+  ),
+  new Destination(
+    "c15",
+    "s5",
+    "Futuroscope",
+    48,
+    1987,
+    4,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ff/34/ce/futuroscope.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c16",
+    "s6",
+    "Edinburgh Vaults: Walking Tour",
+    26,
+    1788,
+    5,
+    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/2c/72/61.jpg"
+  ),
+  new Destination(
+    "c17",
+    "s7",
+    "Sandbank Snorkeling and Sunset Cruise",
+    76,
+    Unknown,
+    4,
+    "https://lh3.googleusercontent.com/p/AF1QipPBKwR-aaXqBBJV7jZhu68yyAgi2a2K-teX3K4K=s1360-w1360-h1020"
+  ),
+  new Destination(
+    "c18",
+    "s8",
+    "Adventuremine Äventyrsgruvan",
+    115,
+    2011,
+    5,
+    "https://lh3.googleusercontent.com/p/AF1QipNPOTpDCJCUExeJKRS3AJIivH9awUxSQOExnuja=s1360-w1360-h1020"
+  ),
+  new Destination(
+    "c19",
+    "s9",
+    "Kilmainham Gaol Museum",
+    9,
+    1796,
+    4.5,
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/2f/1f/c6/photo1jpg.jpg?w=1200&h=-1&s=1"
+  ),
+  new Destination(
+    "c20",
+    "s10",
+    "Northern Lights Tour",
+    223,
+    Unknown,
+    5,
+    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/aa/3c/ea.jpg"
+  ),
+];
