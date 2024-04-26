@@ -16,7 +16,7 @@ function BookmarksScreen (){
 
     if (bookmarkedNews.length === 0) {
         return <View style={styles.rootContainer}>
-            <Text style={styles.text}>You have no saved listings yet!</Text>
+            <Text style={styles.text}>You have no saved articles yet!</Text>
         </View>
     } else {
         return <List items={bookmarkedNews} />;
