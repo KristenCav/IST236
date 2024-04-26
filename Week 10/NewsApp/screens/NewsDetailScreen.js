@@ -4,7 +4,7 @@ import { NEWS } from "../data/dummy_data";
 import BookmarkButton from "../components/BookmarkButton";
 import Colors from "../constants/colors";
 
-//Display screen of listings
+//Display screen of articles
 function NewsDetailScreen(props) {
   const newsId = props.route.params.newsId;
   const selectedNews = NEWS.find((news) => news.id === newsId);
